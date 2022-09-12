@@ -1,0 +1,29 @@
+﻿@model SPaPS.Models.AccountModels.LoginModel;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Најави се</h2>
+<br />
+
+<form asp-action="Login" method="post">
+    <div class="col-12">
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Email" type="email" class="form-control" placeholder="Email">
+                <label asp-for="Email"></label>
+            </div>
+        </div><div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                <label asp-for="Password"></label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Најави се</button>
+</form>
+<p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
+<h4 class="col-12 text-center text-success">@Html.ValidationMessage("Success")</h4>

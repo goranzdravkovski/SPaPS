@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bSE6oFjzjxxIh5YnnNALkdHqwKK+ITf/Lx78MsRKfjcb/GjTD2YiI+Dc/7kvvYTetAemW0cT91jgw2I57halWQ==",
+  "dgSpecHash": "/dmM1Ycn9ntJj41WEt4UX/abKGxlizkTgFr3mv+s96HNVB84so3h6ZOGEqFdhxefF4aSWaIZeSuWvuyFBuyX+A==",
   "success": true,
   "projectFilePath": "D:\\Local Projects\\SPaPS\\SPaPS\\SPaPS.csproj",
   "expectedPackageFiles": [
@@ -89,6 +89,7 @@
     "C:\\Users\\Nikola\\.nuget\\packages\\nuget.projectmodel\\5.11.0\\nuget.projectmodel.5.11.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\nuget.versioning\\6.2.1\\nuget.versioning.6.2.1.nupkg.sha512",
+    "C:\\Users\\Nikola\\.nuget\\packages\\postal.aspnetcore\\2.6.0\\postal.aspnetcore.2.6.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Nikola\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
