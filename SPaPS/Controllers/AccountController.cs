@@ -90,7 +90,7 @@ namespace SPaPS.Controllers
             await _context.SaveChangesAsync();
 
 
-            EmailSetUp emailSetUp = new EmailSetUp()
+            /*EmailSetUp emailSetUp = new EmailSetUp()
             {
                 To = model.Email,
                 Username = model.Email,
@@ -99,7 +99,7 @@ namespace SPaPS.Controllers
                 RequestPath = _emailService.PostalRequest(Request),
             };
 
-            await _emailService.SendEmailAsync(emailSetUp);
+            await _emailService.SendEmailAsync(emailSetUp);*/
 
             return View();
         }
