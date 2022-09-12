@@ -35,8 +35,8 @@ namespace SPaPS.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
-                .FirstOrDefaultAsync(m => m.ClientId == id);
+            Client client = await _context.Clients.FirstOrDefaultAsync(m => m.ClientId == id);
+
             if (client == null)
             {
                 return NotFound();

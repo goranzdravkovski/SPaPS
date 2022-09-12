@@ -1,0 +1,69 @@
+﻿@model SPaPS.Models.AccountModels.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Регистрирај се</h2>
+<br />
+
+<form asp-action="Register" method="post">
+    <div class="row">
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Email" type="email" class="form-control" placeholder="name@example.com">
+                <label asp-for="Email"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                <label asp-for="Password"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="PhoneNumber">
+                <label asp-for="PhoneNumber"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                <label asp-for="Name"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Address" type="text" class="form-control" placeholder="Address">
+                <label asp-for="Address"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="IdNo" type="text" class="form-control" placeholder="IdNo">
+                <label asp-for="IdNo"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="ClientTypeId" type="text" class="form-control" placeholder="ClientTypeId">
+                <label asp-for="ClientTypeId"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="CityId" type="text" class="form-control" placeholder="CityId">
+                <label asp-for="CityId"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="CountryId" type="text" class="form-control" placeholder="CountryId">
+                <label asp-for="CountryId"></label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
