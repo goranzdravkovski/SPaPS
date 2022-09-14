@@ -1,9 +1,11 @@
-﻿namespace SPaPS.Models.AccountModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SPaPS.Models.AccountModels
 {
     public class RegisterModel
     {
+        [Display(Name = "E-маил")]
         public string? Email { get; set; }
-        public string? Password { get; set; }
         public string? PhoneNumber { get; set; }
         public int ClientTypeId { get; set; }
         public string Name { get; set; } = null!;

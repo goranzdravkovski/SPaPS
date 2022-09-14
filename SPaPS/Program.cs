@@ -18,6 +18,13 @@ builder.Services.Configure<EmailSenderOptions>(builder.Configuration.GetSection(
 builder.Services.AddPostal();
 builder.Services.AddTransient<IEmailSenderEnhance, EmailSender>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = new PathString("/Account/Login");
+    options.LogoutPath = new PathString("/");
+    options.AccessDeniedPath = new PathString("/Home/AccessDenied");
+});
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>

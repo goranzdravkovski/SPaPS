@@ -140,7 +140,7 @@ namespace DataAccess.Services
             var client = new SmtpClient(_emailOptions.Host, _emailOptions.Port)
             {
                 EnableSsl = _emailOptions.EnableSSL,
-                UseDefaultCredentials = true,
+                UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(_emailOptions.Username, _emailOptions.Password),
                 DeliveryMethod = SmtpDeliveryMethod.Network
             };
