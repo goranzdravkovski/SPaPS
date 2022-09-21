@@ -1,0 +1,67 @@
+﻿@model SPaPS.Models.AccountModels.ChangeUserInfo
+
+@{
+    ViewData["Title"] = "Change User Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Промени информации</h2>
+<br />
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                <label asp-for="Name"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="IdNo" type="number" class="form-control" placeholder="IdNo">
+                <label asp-for="IdNo"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <select asp-for="ClientTypeId" asp-items="@ViewBag.ClientTypes" class="form-select">
+                    <option value="">-- Избери --</option>
+                </select>
+                <label asp-for="ClientTypeId"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="PhoneNumber">
+                <label asp-for="PhoneNumber"></label>
+            </div>
+        </div>      
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <input asp-for="Address" type="text" class="form-control" placeholder="Address">
+                <label asp-for="Address"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <select asp-for="CityId" asp-items="@ViewBag.Cities" class="form-select">
+                    <option value="">-- Избери --</option>
+                </select>
+                <label asp-for="CityId"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="form-floating mb-3">
+                <select asp-for="CountryId" asp-items="@ViewBag.Countries" class="form-select">
+                    <option value="">-- Избери --</option>
+                </select>
+                <label asp-for="CountryId"></label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Промени</button>
+</form>
+<p class="col-12 text-center text-danger">@Html.ValidationMessage("Error")</p>
+<h4 class="col-12 text-center text-success">@Html.ValidationMessage("Success")</h4>

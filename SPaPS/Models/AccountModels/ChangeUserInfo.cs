@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace SPaPS.Models.AccountModels
 {
-    public class RegisterModel
+    public class ChangeUserInfo
     {
-        [Display(Name = "E-маил")]
-        public string? Email { get; set; }
+        [Required]
         public string? PhoneNumber { get; set; }
         public int ClientTypeId { get; set; }
         public string Name { get; set; } = null!;
@@ -13,6 +13,5 @@ namespace SPaPS.Models.AccountModels
         public string IdNo { get; set; } = null!;
         public int CityId { get; set; }
         public int? CountryId { get; set; }
-        public string? Role { get; set; }
     }
 }
