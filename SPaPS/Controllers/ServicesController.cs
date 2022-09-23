@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SPaPS.Data;
 using SPaPS.Models;
+using SPaPS.Models.CustomModels;
 
 namespace SPaPS.Controllers
 {
@@ -24,7 +25,23 @@ namespace SPaPS.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Services.ToListAsync());
+            List<vm_Service> model = await _context.Services
+                                                    .Include(x => x.ServiceActivities)
+                                                    .Select(x => new vm_Service()
+                                                    {
+                                                        ServiceId = x.ServiceId,
+                                                        Description = x.Description,
+                                                        Activities = String.Join("; ", x.ServiceActivities.Select(a => a.Activity.Name).ToList()) //Кречење; Чистење објект; ...
+                                                    })
+                                                    .ToListAsync();
+
+            /*
+                select s.Description, a.Name from Service s
+                join ServiceActivity sa on s.Service_Id = sa.Service_Id
+                join Activity a on sa.Activity_Id = a.Activity_Id
+            */
+
+            return View(model);
         }
 
         // GET: Services/Details/5
@@ -48,6 +65,7 @@ namespace SPaPS.Controllers
         // GET: Services/Create
         public IActionResult Create()
         {
+            ViewBag.Activities = new SelectList(_context.Activities.ToList(), "ActivityId", "Name");
             return View();
         }
 
@@ -56,15 +74,48 @@ namespace SPaPS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ServiceId,Description,CreatedOn,CreatedBy,UpdatedOn,UpdatedBy,IsActive")] Service service)
+        public async Task<IActionResult> Create(vm_Service model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(service);
+                Service service = new Service()
+                {
+                    Description = model.Description,
+                    CreatedOn = DateTime.Now,
+                    CreatedBy = 1
+                };
+
+                _context.Services.Add(service);
                 await _context.SaveChangesAsync();
+                //---------------------------------------------
+
+                /*List<ServiceActivity> serviceActivities1 = model.ActivityIds
+                                                                    .Select(x => new ServiceActivity()
+                                                                    {
+                                                                        ServiceId = service.ServiceId,
+                                                                        ActivityId = x
+                                                                    })
+                                                                    .ToList();*/
+
+                List<ServiceActivity> serviceActivities = new List<ServiceActivity>();
+
+                foreach(var item in model.ActivityIds)
+                {
+                    ServiceActivity sa = new ServiceActivity()
+                    {
+                        ServiceId = service.ServiceId,
+                        ActivityId = item
+                    };
+
+                    serviceActivities.Add(sa);
+                }
+
+                await _context.ServiceActivities.AddRangeAsync(serviceActivities);
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(service);
+            return View(model);
         }
 
         // GET: Services/Edit/5

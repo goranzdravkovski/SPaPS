@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SPaPS</title>
     <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/select2/css/select2.css" />
+    <link rel="stylesheet" href="/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SPaPS.styles.css" asp-append-version="true" />
 </head>
 <body>
     <script src="/lib/jquery/jquery.min.js" defer></script>
     <script src="/lib/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/lib/select2/js/select2.js" defer></script>
     <script src="~/js/site.js" asp-append-version="true" defer></script>
 
     <header>
@@ -39,6 +42,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="ReferenceTypes" asp-action="Index">Reference Type</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Services" asp-action="Index">Services</a>
                             </li>
                         }
                         
