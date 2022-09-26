@@ -72,6 +72,19 @@
                 <label asp-for="CountryId"></label>
             </div>
         </div>
+        <div class="col-md-3 col-6 NoOfEmployees d-none">
+            <div class="form-floating mb-3">
+                <input asp-for="NoOfEmployees" type="number" class="form-control" placeholder="NoOfEmployees">
+                <label asp-for="NoOfEmployees"></label>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 DateOfEstablishment d-none">
+            <div class="form-floating mb-3">
+                <input asp-for="DateOfEstablishment" type="date" class="form-control" placeholder="DateOfEstablishment">
+                <label asp-for="DateOfEstablishment"></label>
+            </div>
+        </div>
+        
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

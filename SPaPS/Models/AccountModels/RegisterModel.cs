@@ -14,5 +14,8 @@ namespace SPaPS.Models.AccountModels
         public int CityId { get; set; }
         public int? CountryId { get; set; }
         public string? Role { get; set; }
+        public int? NoOfEmployees { get; set; }
+        public DateTime? DateOfEstablishment { get; set; }
+
     }
 }
