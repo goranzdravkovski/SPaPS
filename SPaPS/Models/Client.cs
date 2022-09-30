@@ -18,10 +18,10 @@ namespace SPaPS.Models
         public string IdNo { get; set; } = null!;
         public int CityId { get; set; }
         public int? CountryId { get; set; }
-        public DateTime? DateEstablished { get; set; }
-        public int? NoOfEmployees { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
+        public int? NoOfEmployees { get; set; }
+        public DateTime? DateEstablished { get; set; }
 
         public virtual ICollection<ClientActivity> ClientActivities { get; set; }
     }
