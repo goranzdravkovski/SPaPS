@@ -1,2 +1,2 @@
-﻿Scaffold-DbContext -Connection "Data Source=NSTANKOSKI-PC\LOCALHOST;Initial Catalog=SPaPS;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Data -Force
-Scaffold-DbContext -Connection "Data Source=NSTANKOSKI-PC\LOCALHOST;Initial Catalog=SPaPS;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Request -Force
+﻿Scaffold-DbContext -Connection "Data Source=GZDRAVKOVSKI-PC\SQLEXPRESS;Initial Catalog=SPaPS;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Data -Force
+Scaffold-DbContext -Connection "Data Source=GZDRAVKOVSKI-PC\SQLEXPRESS;Initial Catalog=SPaPS;Trusted_Connection=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Request -Force

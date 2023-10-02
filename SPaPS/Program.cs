@@ -13,8 +13,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<SPaPSContext>(options => options.UseSqlServer(connectionString));
 
-
-
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -24,13 +22,12 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
     options.Lockout.AllowedForNewUsers = true;
     options.Lockout.MaxFailedAccessAttempts = 3;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(365);
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
 
     options.Password.RequireDigit = true;
     options.Password.RequiredLength = 8;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = true;
-
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
