@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SPaPS.Models
 {
@@ -7,7 +8,9 @@ namespace SPaPS.Models
     {
         public long ReferenceId { get; set; }
         public long ReferenceTypeId { get; set; }
+        [Required]
         public string Description { get; set; } = null!;
+        [Required]
         public string Code { get; set; } = null!;
         public DateTime CreatedOn { get; set; }
         public int CreatedBy { get; set; }
@@ -16,5 +19,6 @@ namespace SPaPS.Models
         public bool? IsActive { get; set; }
 
         public virtual ReferenceType? ReferenceType { get; set; } = null!;
+
     }
 }

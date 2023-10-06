@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SPaPS.Enums;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -34,15 +35,24 @@
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Clients" asp-action="Index">Clients</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="References" asp-action="Index">Reference</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="ReferenceTypes" asp-action="Index">Reference Type</a>
-                            </li>
+                            if (User.IsInRole(Roles.Admin.ToString()))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="References" asp-action="Index">Reference</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="ReferenceTypes" asp-action="Index">Reference Type</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Clients" asp-action="Index">Clients</a>
+                                </li>
+                            }
+                            if (User.IsInRole(Roles.Company.ToString()))
+                            {
+                            }
+                            if (User.IsInRole(Roles.Company.ToString()))
+                            {
+                            }
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Services" asp-action="Index">Services</a>
                             </li>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Postal.AspNetCore;
 using SPaPS.Data;
+using SPaPS.Enums;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,16 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Home/AccessDenied";
     options.LogoutPath = "/Home/Index";
     options.SlidingExpiration = true;
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(nameof(AuthPolicy.AdminPolicy),
+         policy => policy.RequireRole(Roles.Admin.ToString()));
+    options.AddPolicy(nameof(AuthPolicy.CompanyPolicy),
+          policy => policy.RequireRole(Roles.Company.ToString()));
+    options.AddPolicy(nameof(AuthPolicy.ClientPolicy),
+         policy => policy.RequireRole(Roles.Client.ToString()));
 });
 
 var app = builder.Build();
