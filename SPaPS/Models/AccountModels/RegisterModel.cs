@@ -16,6 +16,7 @@ namespace SPaPS.Models.AccountModels
         public string? Role { get; set; }
         public int? NoOfEmployees { get; set; }
         public DateTime? DateOfEstablishment { get; set; }
+        public int ServiceId { get; set; }
 
     }
 }

@@ -60,6 +60,7 @@ namespace SPaPS.Controllers
             ViewBag.Cities = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 2).ToList(), "ReferenceId", "Description");
             ViewBag.Countries = new SelectList(_context.References.Where(x => x.ReferenceTypeId == 3).ToList(), "ReferenceId", "Description");
             ViewBag.Roles = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
+            ViewBag.Services = new SelectList(_context.Services.ToList(), "ServiceId", "Description");
 
             return View();
         }

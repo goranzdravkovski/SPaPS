@@ -26,6 +26,7 @@ namespace SPaPS.Data
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Client> Clients { get; set; } = null!;
         public virtual DbSet<ClientActivity> ClientActivities { get; set; } = null!;
+        public virtual DbSet<ClientService> ClientServices { get; set; } = null!;
         public virtual DbSet<Reference> References { get; set; } = null!;
         public virtual DbSet<ReferenceType> ReferenceTypes { get; set; } = null!;
         public virtual DbSet<Request> Requests { get; set; } = null!;
@@ -195,6 +196,30 @@ namespace SPaPS.Data
                     .HasForeignKey(d => d.ClientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ClientActivity_ClientActivity");
+            });
+
+
+            modelBuilder.Entity<ClientService>(entity =>
+            {
+                entity.ToTable("ClientService");
+
+                entity.Property(e => e.ClientServiceId).HasColumnName("ClientService_Id");
+
+                entity.Property(e => e.ServiceId).HasColumnName("Service_Id");
+
+                entity.Property(e => e.ClientId).HasColumnName("Client_Id");
+
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.ClientServices)
+                    .HasForeignKey(d => d.ServiceId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ClientService_Service");
+
+                entity.HasOne(d => d.Client)
+                    .WithMany(p => p.ClientServices)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ClientService_ClientService");
             });
 
             modelBuilder.Entity<Reference>(entity =>
