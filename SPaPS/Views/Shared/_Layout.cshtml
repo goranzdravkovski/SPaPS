@@ -46,16 +46,23 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Clients" asp-action="Index">Clients</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Services" asp-action="Index">Services</a>
+                                </li>
+                            }
+                            if (User.IsInRole(Roles.Client.ToString()))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Requests" asp-action="Index">Requests</a>
+                                </li>
                             }
                             if (User.IsInRole(Roles.Company.ToString()))
                             {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Requests" asp-action="Index">Requests</a>
+                                </li>
                             }
-                            if (User.IsInRole(Roles.Company.ToString()))
-                            {
-                            }
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Services" asp-action="Index">Services</a>
-                            </li>
+
                         }
                         
                     </ul>

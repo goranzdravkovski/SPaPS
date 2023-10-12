@@ -8,6 +8,8 @@ namespace SPaPS.Models
         public long RequestId { get; set; }
         public DateTime RequestDate { get; set; }
         public long ServiceId { get; set; }
+        public long ActivityId { get; set; }
+        public long ClientId { get; set; }
         public int? BuildingTypeId { get; set; }
         public int? BuildingSize { get; set; }
         public DateTime? FromDate { get; set; }
@@ -23,5 +25,7 @@ namespace SPaPS.Models
         public bool? IsActive { get; set; }
 
         public virtual Service? Service { get; set; } = null!;
+        public virtual Activity? Activity { get; set; } = null!;
+        public virtual Client? Client { get; set; } = null!;
     }
 }

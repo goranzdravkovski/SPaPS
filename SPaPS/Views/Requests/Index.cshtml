@@ -1,0 +1,117 @@
+﻿@model IEnumerable<SPaPS.Models.Request>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+@if (User.IsInRole(SPaPS.Enums.Roles.Client.ToString()))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildingTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildingSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfWindows)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfDoors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            @if (User.IsInRole(SPaPS.Enums.Roles.Client.ToString()))
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildingSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfWindows)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activity.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Name)
+            </td>
+                @if (User.IsInRole(SPaPS.Enums.Roles.Client.ToString()))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.RequestId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.RequestId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.RequestId">Delete</a>
+                    </td>
+                }
+        </tr>
+}
+    </tbody>
+</table>

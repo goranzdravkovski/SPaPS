@@ -296,6 +296,10 @@ namespace SPaPS.Data
 
                 entity.Property(e => e.ServiceId).HasColumnName("Service_Id");
 
+                entity.Property(e => e.ActivityId).HasColumnName("Activity_Id");
+
+                entity.Property(e => e.ClientId).HasColumnName("Client_Id");
+
                 entity.Property(e => e.ToDate).HasColumnType("date");
 
                 entity.Property(e => e.UpdatedOn).HasColumnType("datetime");

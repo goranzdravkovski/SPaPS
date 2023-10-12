@@ -25,5 +25,6 @@ namespace SPaPS.Models
 
         public virtual ICollection<ClientActivity> ClientActivities { get; set; }
         public virtual ICollection<ClientService> ClientServices { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }
